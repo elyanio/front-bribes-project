@@ -24,20 +24,3 @@ export const useCrudBribesListMutation = () => {
   } = useMutation<Definitions.NumberList, Error, CrudList>(crudBribesList);
   return { loading, data, error, mutate };
 };
-
-export const crudBribesList = ({ body, method, id }: CrudList) =>
-  fetchCreator({
-    path: `${endpointRegister["list"]}${id ? `/${id}` : ""}`,
-    method,
-    body,
-  });
-
-export const useCrudBribesListMutation = () => {
-  const {
-    data,
-    error,
-    isLoading: loading,
-    mutate,
-  } = useMutation<Definitions.NumberList, Error, CrudList>(crudBribesList);
-  return { loading, data, error, mutate };
-};
